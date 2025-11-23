@@ -1,6 +1,11 @@
 // Importa as bibliotecas que acabamos de instalar
 import express from 'express';
 import cors from 'cors';
+
+// Módulos para lidar com caminhos de arquivos
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import 'dotenv/config'; // Carrega as variáveis do arquivo .env
 
 // Cria a aplicação do servidor
@@ -8,8 +13,14 @@ const app = express();
 const PORT = 3000; // A porta onde nosso servidor vai rodar
 
 // Configurações do servidor
-app.use(cors()); // Habilita o CORS para permitir a comunicação com o front-end
+app.use(cors()); // Habilita o CORS para permitir a comunicação entre diferentes origens
 app.use(express.json()); // Permite que o servidor entenda requisições com corpo em JSON
+
+// Configuração para servir arquivos estáticos (HTML, CSS, JS do front-end)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// A linha abaixo diz ao Express para servir os arquivos da pasta atual
+app.use(express.static(__dirname));
 
 // Pega a chave da API do arquivo .env (de forma segura)
 const apiKey = process.env.GEMINI_API_KEY;

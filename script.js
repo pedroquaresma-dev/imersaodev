@@ -43,31 +43,33 @@ function mostrarSpinner() {
 
 // Função assíncrona para buscar dados na API da Gemini
 async function buscarNaAPI(termoBusca) {
-    mostrarSpinner();
-
-    // O URL do nosso servidor local seguro
-    const localApiUrl = `http://localhost:3000/api/search?termo=${encodeURIComponent(termoBusca)}`;
-
-    try {
-        // Faz a chamada para o nosso back-end, não mais para a Gemini
-        const response = await fetch(localApiUrl);
-
-        if (!response.ok) throw new Error(`Erro no servidor local: ${response.statusText}`);
-
-        // O nosso servidor já nos devolve o JSON da Gemini
-        const result = await response.json();
-        const jsonText = result.candidates?.[0]?.content?.parts?.[0]?.text;
-        const dadosApi = JSON.parse(jsonText.replace(/```json|```/g, '').trim());
-
-        if (dadosApi.nome === "Desconhecido") {
-            mostrarStatus(`Não foram encontrados resultados para "${termoBusca}".`);
-        } else {
-            exibirResultados([dadosApi]); // Exibe o único resultado
-        }
-    } catch (error) {
-        console.error("Erro ao buscar na API:", error);
-        mostrarStatus("Ocorreu um erro ao buscar. Verifique se o servidor local está rodando.");
-    }
+    // A função original foi substituída por uma que busca em um arquivo local.
+    // Vamos restaurar a lógica correta para chamar o servidor.
+     mostrarSpinner();
+ 
+     // O URL do nosso servidor local seguro
+     const localApiUrl = `http://localhost:3000/api/search?termo=${encodeURIComponent(termoBusca)}`;
+ 
+     try {
+         // Faz a chamada para o nosso back-end, que por sua vez chama a Gemini
+         const response = await fetch(localApiUrl);
+ 
+         if (!response.ok) throw new Error(`Erro no servidor local: ${response.statusText}`);
+ 
+         // O nosso servidor já nos devolve o JSON da Gemini
+         const result = await response.json();
+         const jsonText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+         const dadosApi = JSON.parse(jsonText.replace(/```json|```/g, '').trim());
+ 
+         if (dadosApi.nome === "Desconhecido") {
+             mostrarStatus(`Não foram encontrados resultados para "${termoBusca}".`);
+         } else {
+             exibirResultados([dadosApi]); // Exibe o único resultado
+         }
+     } catch (error) {
+         console.error("Erro ao buscar na API:", error);
+         mostrarStatus("Ocorreu um erro ao buscar. Verifique se o servidor local está rodando.");
+     }
 }
 
 // Função responsável por renderizar os resultados na tela
