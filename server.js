@@ -10,7 +10,8 @@ import 'dotenv/config'; // Carrega as variáveis do arquivo .env
 
 // Cria a aplicação do servidor
 const app = express();
-const PORT = 3000; // A porta onde nosso servidor vai rodar
+// O Render fornece a porta pela variável de ambiente PORT. Usamos ela ou a 3000 como padrão.
+const PORT = process.env.PORT || 3000;
 
 // Configurações do servidor
 app.use(cors()); // Habilita o CORS para permitir a comunicação entre diferentes origens
@@ -76,5 +77,5 @@ app.get('/api/search', async (req, res) => {
 
 // Inicia o servidor e o faz "ouvir" na porta definida
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor proxy rodando em http://localhost:${PORT}`);
+    console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
