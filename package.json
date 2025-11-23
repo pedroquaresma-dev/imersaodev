@@ -1,0 +1,17 @@
+{
+  "name": "knowledge-generator",
+  "version": "1.0.0",
+  "description": "Gerador de base de conhecimento usando a Gemini API.",
+  "main": "generateKnowledge.js",
+  "scripts": {
+    "start": "node -r dotenv/config gerador.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0"
+  }
+}

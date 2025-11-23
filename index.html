@@ -1,0 +1,51 @@
+<!-- Define o tipo de documento como HTML5 -->
+<!DOCTYPE html>
+<!-- Define o idioma da página como português do Brasil -->
+<html lang="pt-br">
+<head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Garante que a página seja responsiva e se ajuste a diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Imersao Dev</title>
+    <!-- Link para a folha de estilos CSS externa -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <!-- Título principal -->
+        <h1>Aprenda mais sobre as principais linguagens de programação</h1>
+        <!-- Div para agrupar os elementos de busca -->
+        <div>
+            <!-- Campo de entrada de texto para o usuário digitar a busca -->
+            <input type="text" id="input-busca" placeholder="Pesquise uma linguagem...">
+            <!-- Botão que aciona a busca -->
+            <button id="botao-busca">Buscar</button>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da página -->
+    <main id="results">
+        <!-- Seção que vai conter os cards com os resultados da busca -->
+        <section class="card-container">
+            <!-- Os cards com as linguagens de programação serão inseridos aqui dinamicamente pelo JavaScript -->
+        </section>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer class="footer">
+        <!-- Informação de localização -->
+        <div class="footer-location">Brasil</div>
+        <!-- Lista de links externos -->
+        <ul class="footer-links">
+            <li><a href="https://github.com/pedroquaresma-dev">Github</a></li>
+            <li><a href="https://www.linkedin.com/in/pquaresmadev/">Linkedin</a></li>
+            <li><a href="https://www.alura.com.br/">Alura</a></li>
+        </ul>
+    </footer>
+    <!-- Link para o arquivo JavaScript que controla a interatividade da página -->
+    <script src="script.js"></script>
+</body>
+</html>
