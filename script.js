@@ -48,11 +48,12 @@ async function buscarNaAPI(termoBusca) {
      mostrarSpinner();
  
      // O URL do nosso servidor local seguro
-     const localApiUrl = `http://localhost:3000/api/search?termo=${encodeURIComponent(termoBusca)}`;
+     // ATENÇÃO: Substitua pela sua URL pública do Render!
+     const apiUrl = `https://seu-app.onrender.com/api/search?termo=${encodeURIComponent(termoBusca)}`;
  
      try {
          // Faz a chamada para o nosso back-end, que por sua vez chama a Gemini
-         const response = await fetch(localApiUrl);
+         const response = await fetch(apiUrl);
  
          if (!response.ok) throw new Error(`Erro no servidor local: ${response.statusText}`);
  
