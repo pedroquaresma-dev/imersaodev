@@ -49,7 +49,7 @@ async function buscarNaAPI(termoBusca) {
  
      // O URL do nosso servidor local seguro
      // ATENÇÃO: Substitua pela sua URL pública do Render!
-     const apiUrl = `https://seu-app.onrender.com/api/search?termo=${encodeURIComponent(termoBusca)}`;
+     const apiUrl = `https://imersaodev.onrender.com/api/search?termo=${encodeURIComponent(termoBusca)}`;
  
      try {
          // Faz a chamada para o nosso back-end, que por sua vez chama a Gemini
